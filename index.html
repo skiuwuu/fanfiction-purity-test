@@ -89,4 +89,37 @@
 <label><input type="checkbox" name="tropes" value="4"> necrophilia to an animal's body </label>
 <label><input type="checkbox" name="tropes" value="4"> necrophilia to a child's body </label>
 
+<script>
+  function calculateScore() {
+    const checkboxes = document.querySelectorAll('input[name="tropes"]:checked');
+    let score = 0;
+    checkboxes.forEach((box) => {
+      score += parseInt(box.value);
+    });
 
+    const maxScore = 110;
+    const percentage = Math.round((score / maxScore) * 100);
+
+    let resultText = `You scored ${score} out of ${maxScore}.\n\n`;
+
+    if (score === 0) {
+      resultText += "you're squeaky clean. have you even read fanfic?";
+    } else if (percentage <= 9) {
+      resultText += "very basic and vanilla;
+    } else if (percentage <= 24) {
+      resultText += "maybe starting to dip your toe in but still pretty basic";
+    } else if (percentage <= 39) {
+      resultText += "kinda freaky but not a FULL freak";
+    } else if (percentage <= 59) {
+      resultText += "respectable score, youve explored a lot of fanfic but theres still further to go";
+    } else if (percentage <= 79) {
+      resultText += "you are a FREAK in a good eay though";
+    } else if (percentage <= 94) {
+      resultText += "degenerate, fully ao3 pilled no going back";
+    } else {
+      resultText += "okay you might need to seek help but also BASED";
+    }
+
+    document.getElementById("result").textContent = resultText;
+  }
+</script>
