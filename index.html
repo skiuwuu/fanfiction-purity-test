@@ -89,6 +89,9 @@
 <label><input type="checkbox" name="tropes" value="4"> necrophilia to an animal's body </label>
 <label><input type="checkbox" name="tropes" value="4"> necrophilia to a child's body </label>
 
+  <button type="button" onclick="calculateScore()">Submit</button>
+<p id="result"></p>
+
 <script>
   function calculateScore() {
     const checkboxes = document.querySelectorAll('input[name="tropes"]:checked');
@@ -103,9 +106,9 @@
     let resultText = `You scored ${score} out of ${maxScore}.\n\n`;
 
     if (score === 0) {
-      resultText += "you're squeaky clean. have you even read fanfic?";
+      resultText += "you're squeaky clean, have you ever read fanfiction?";
     } else if (percentage <= 9) {
-      resultText += "very basic and vanilla;
+      resultText += "very basic and vanilla, barely touching the surface";
     } else if (percentage <= 24) {
       resultText += "maybe starting to dip your toe in but still pretty basic";
     } else if (percentage <= 39) {
